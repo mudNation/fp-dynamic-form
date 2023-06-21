@@ -161,7 +161,7 @@ const Render = ({ content, setShowData, formData, setFormData } : ContentType) =
       //   return false; 
       // }
 
-      alert("insice change " + JSON.stringify(input))
+      // alert("insice change " + JSON.stringify(input))
 
 
       return true; 

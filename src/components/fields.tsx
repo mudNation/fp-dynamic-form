@@ -450,7 +450,8 @@ export const Audio = ( { field, value, onChange, error } : PropType) => {
             let audioElement = document.createElement("audio");
             audioElement.preload = 'metadata'; 
             audioElement.src = mediaBlobUrl; 
-            
+            document.body.appendChild(audioElement);
+            alert(audioElement.duration)
 
             // audioElement.onloadedmetadata = function(){
             //     alert(audioElement.duration); 
