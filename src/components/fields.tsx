@@ -448,10 +448,10 @@ export const Audio = ( { field, value, onChange, error } : PropType) => {
         if(onChange !== undefined && mediaBlobUrl !== undefined){
 
             let audioElement = document.createElement("audio");
-            audioElement.preload = 'metadata'; 
-            audioElement.src = mediaBlobUrl; 
-            document.body.appendChild(audioElement);
-            alert(audioElement.duration)
+            // audioElement.preload = 'metadata'; 
+            // audioElement.src = mediaBlobUrl; 
+            // document.body.appendChild(audioElement);
+            // alert(audioElement.duration)
 
             // audioElement.onloadedmetadata = function(){
             //     alert(audioElement.duration); 
