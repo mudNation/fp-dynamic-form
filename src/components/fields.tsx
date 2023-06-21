@@ -232,7 +232,8 @@ export const CheckBox = ( { field, onChange, error, value } : PropType) => {
         }
 
         setCheckedField([...tempCheckedFields]); 
-    }, [value, checkedFields, field.options])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [value])
 
     const handleChange = (index:number) => {
         if(field === undefined){
@@ -299,7 +300,8 @@ export const Radio = ( { field, onChange, error, value} : PropType) => {
         }
 
         setCheckedField([...tempCheckedFields]); 
-    }, [value, checkedFields, field.options])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [value])
 
     const handleChange = (index:number) => {
         if(field === undefined){
