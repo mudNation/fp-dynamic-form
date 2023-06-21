@@ -1,0 +1,318 @@
+.content{
+    // background-color: blue; 
+    width: 1200px; 
+    margin: 50px auto; 
+    text-align: center; 
+
+    .dataLabel{
+        margin-bottom: 20px;
+        // background-color: blue;
+
+        h3, p{
+            margin: 0;
+        }
+    }
+
+    .showDataButton{
+        margin-top: 30px; 
+        button:first-child{
+            margin-right: 10px; 
+        }
+    }
+
+    audio, video, img{
+        width: 250px; 
+    }
+
+    video, img{
+        height: 250px; 
+    }
+
+    img{
+        object-fit: cover;
+    }
+
+
+    .urlContainer{
+        width: 60%;
+        margin: auto; 
+        text-align: left;
+
+        label{
+            display: block; 
+        }
+
+        .formUrl{
+            padding: 8px 16px; 
+            display: block; 
+            width: 100%; 
+            box-sizing: border-box;
+        }
+
+        button{
+            width: 100%; 
+            padding: 8px 16px; 
+            margin-top: 10px; 
+        }
+    }
+
+    .formBody{
+        width: 100%; 
+        margin: 30px 0px 50px 0px;  
+        
+
+        display: flex; 
+
+        .leftBody{
+            flex: 1; 
+
+            .page{
+                background: black; 
+                color: white; 
+                padding: 8px; 
+                box-sizing: border-box;
+                margin-bottom: 10px;
+                cursor: pointer; 
+                transition: 0.2;
+            }
+
+            .active{
+                opacity: 0.6; 
+            }
+
+            .inActive:hover{
+                opacity: 0.8;
+            }
+        }
+
+        .rightBody{
+            flex: 3; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+
+            h1, h2{
+                width: 90%; 
+            }
+
+            .actionButton{
+                padding: 10px; 
+            }
+
+            .actionButton:first-child{
+                margin-right: 5px;
+            }
+
+            section{
+                width: 90%; 
+                border: 1px solid black; 
+                margin-top: 50px; 
+                margin: 50px auto; 
+                padding: 20px; 
+                box-sizing: border-box;
+
+                .inputHolder{
+                    display: flex; 
+                    flex-direction: column;
+                    text-align: left;
+                    width: 100%; 
+                    margin-bottom: 15px;
+
+                    label{
+                        margin-bottom: 5px;
+                        font-weight: bold;
+
+                        span{
+                            color: red; 
+                        }
+                    }
+
+
+                    .fileLabel{
+                        color: black; 
+                        width: 100%;
+                    }
+
+
+
+                    .label{
+                        font-weight: normal;
+                    }
+
+                    span{
+                        font-size: 12px; 
+                        margin-bottom: 5px;
+                    }
+
+                    input[type="text"], input[type='email'], input[type='tel'], input[type='number'], input[type='date'], input[type='time'], input[type='datetime-local']{
+                        padding: 8px 16px; 
+                        width: 100%; 
+                        box-sizing: border-box;
+                    }
+
+                    textarea{
+                        resize: none;
+                        padding: 8px 16px; 
+                        box-sizing: border-box;
+                    }
+
+                    .option{
+                        display: flex; 
+                        align-items: center;
+                        label{
+                            height: fit-content;
+                            font-weight: normal;
+                            margin-right: 5px;
+                        }
+                    }
+
+                    audio, video{
+                        margin-bottom: 5px;
+                    }
+
+                    audio, video, img{
+                        width: 250px; 
+                    }
+
+                    video, img{
+                        height: 250px; 
+                    }
+
+                    img{
+                        object-fit: cover;
+                    }
+
+                    .imageWeb{
+                        display: flex; 
+                        flex-direction: column;
+                    }
+
+                    .inputError{
+                        border: 1px solid red; 
+                    }
+
+                    .checkBoxError{
+                        background-color: red;
+                    }
+
+                    .error{
+                        color: red; 
+                        margin: 0; 
+                        font-size: 11px;
+                    }
+                }
+
+                
+            }
+        }
+    }
+}
+
+
+
+
+@media only screen and (max-width: 1250px) {
+    .content{
+        width: 1000px; 
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .content{
+        width: 800px; 
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .content{
+        width: 90%; 
+
+        .urlContainer{
+            width: 90%; 
+        }
+
+        .formBody{
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            .leftBody{
+                width: 90%;
+            }
+
+            .rightBody{
+                width: 100%; 
+                height: 200px; 
+                h1{
+                    font-size: 25px; 
+                    width: 80%; 
+                }
+
+                h2{
+                    font-size: 18px; 
+                    width: 80%; 
+                }
+
+                section{
+                    width: 100%; 
+                    height: auto;
+
+                    h3{
+                        font-size: 16px; 
+                    }
+
+                    h4{
+                        font-size: 14px; 
+                    }
+                }
+            }
+
+
+        }
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    .content{
+        .urlContainer{
+            width: 90%; 
+        }
+
+        audio, video, img, .img{
+            width: 180px; 
+        }
+
+        video, img{
+            height: 180px; 
+        }
+
+        .formBody{
+
+            .rightBody{
+                h1{
+                    width: 250px; 
+                }
+
+                h2{
+                    width: 250px; 
+                }
+
+                section{
+                    padding: 10px; 
+
+                    .inputHolder{
+                        audio, video, img, .img{
+                            width: 180px; 
+                        }
+    
+                        video, img{
+                            height: 180px; 
+                        }
+                    }   
+                }
+            }
+
+        }
+    }
+}
