@@ -78,7 +78,7 @@ const Render = ({ content, setShowData, formData, setFormData } : ContentType) =
                 break;
               case 'audio': 
               case 'video':
-                tempFormData[data].error = checkValidMedia(formData[data]?.validation, {value: formData[data].value, length: formData[data].length});
+                tempFormData[data].error = checkRequired(formData[data]?.validation, formData[data].value);
                 if(!invalid) invalid = formData[data].error; 
                 break;
               case 'image': 

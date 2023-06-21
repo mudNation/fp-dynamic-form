@@ -445,8 +445,22 @@ export const Audio = ( { field, value, onChange, error } : PropType) => {
     }
 
     useEffect(() => {
-        if(onChange !== undefined && mediaBlobUrl !== undefined && mediaRef.current !== null){
-            mediaRef.current.src = mediaBlobUrl; 
+        if(onChange !== undefined && mediaBlobUrl !== undefined){
+
+            let audioElement = document.createElement("audio");
+            audioElement.preload = 'metadata'; 
+            audioElement.src = mediaBlobUrl; 
+            
+
+            // audioElement.onloadedmetadata = function(){
+            //     alert(audioElement.duration); 
+            // }
+
+
+            audioElement.play(); 
+            // audioElement.stop(); 
+            // alert(audioElement.duration);
+            // alert(mediaRef.current?.duration) 
             onChange({value: mediaBlobUrl, length:0})
         }
 
@@ -456,7 +470,7 @@ export const Audio = ( { field, value, onChange, error } : PropType) => {
     return(
         <InputHolder label={field.label} required={field.validation?.required || false} description={field.description}>
             <>
-                <audio src={value} controls autoPlay />
+                <audio src={value} preload="metadata"  ref={mediaRef} controls autoPlay />
                 
                 <div>
                     <p>{isRecording ? 'Recording...' : ''}</p>
