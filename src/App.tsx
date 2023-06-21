@@ -45,6 +45,7 @@ function App() {
                         validation: field.validation,
                         sizes: null,
                         files: null,
+                        length: 0,
                     }
 
                     

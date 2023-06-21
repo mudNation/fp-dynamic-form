@@ -430,6 +430,7 @@ export const Audio = ( { field, value, onChange, error } : PropType) => {
     const { startRecording, stopRecording, mediaBlobUrl } =
         useReactMediaRecorder({ audio: true });
     const [isRecording, setIsRecording] = useState(false); 
+    const mediaRef = useRef<HTMLAudioElement>(null)
 
     const handleStartRecording = () => {
         setIsRecording(true); 
@@ -442,10 +443,13 @@ export const Audio = ( { field, value, onChange, error } : PropType) => {
     }
 
     useEffect(() => {
-        if(onChange !== undefined && mediaBlobUrl !== undefined){
-            onChange(mediaBlobUrl)
+        if(onChange !== undefined && mediaBlobUrl !== undefined && mediaRef.current !== null){
+            mediaRef.current.src = mediaBlobUrl; 
+            onChange({value: mediaBlobUrl, length:0})
         }
-    }, [mediaBlobUrl, onChange])
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [mediaBlobUrl])
 
     return(
         <InputHolder label={field.label} required={field.validation?.required || false} description={field.description}>
@@ -485,7 +489,9 @@ export const Video = ( { field, value, onChange, error } : PropType) => {
         if(onChange !== undefined && mediaBlobUrl !== undefined){
             onChange(mediaBlobUrl)
         }
-    }, [mediaBlobUrl, onChange])
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [mediaBlobUrl])
 
 
     return(

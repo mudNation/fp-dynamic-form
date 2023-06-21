@@ -78,11 +78,12 @@ const Render = ({ content, setShowData, formData, setFormData } : ContentType) =
                 break;
               case 'audio': 
               case 'video':
+                tempFormData[data].error = checkValidMedia(formData[data]?.validation, {value: formData[data].value, length: formData[data].length});
+                if(!invalid) invalid = formData[data].error; 
+                break;
               case 'image': 
-
                 tempFormData[data].error = checkRequired(formData[data]?.validation, formData[data].value);
                 if(!invalid) invalid = formData[data].error; 
-                
                 break;
             }
           }
@@ -114,8 +115,6 @@ const Render = ({ content, setShowData, formData, setFormData } : ContentType) =
       if(validation === undefined || (validation.required === false && (sizes?.length === 0 || sizes === undefined))){
         return false; 
       }
-
-      // alert(sizes?.length); 
 
       if(sizes?.length > 0){
         for(let i = 0; i < sizes.length; i++){
@@ -155,6 +154,28 @@ const Render = ({ content, setShowData, formData, setFormData } : ContentType) =
       }
 
       return false; 
+    }
+
+    const checkValidMedia = (validation: validationType | undefined, input: {value: string, length: number}): boolean =>{
+      // if(validation === undefined || (validation.required === false && input === '')){
+      //   return false; 
+      // }
+
+      alert("insice change " + JSON.stringify(input))
+
+
+      return true; 
+    }
+
+    const handleMediaChange = (id: string, value: {value: string, length: number}) => {
+      if(formData===undefined){
+        return; 
+      }
+
+      const tempFormData = formData[id]; 
+      tempFormData.length = value.length; 
+      tempFormData.value = value.value; 
+      setFormData({...formData, [id]: tempFormData})
     }
 
     const checkShortTextValid = (validation: validationType | undefined, input: string): boolean =>{
@@ -374,7 +395,7 @@ const Render = ({ content, setShowData, formData, setFormData } : ContentType) =
                           fileList={formData[stringIndex].fileList} onChange={(value) => handleFileChange(stringIndex, value)} />
                       case "audio":
                         return <Audio field={field} error={formData[stringIndex].error}
-                        value={formData[stringIndex].value} onChange={(value) => handleValueChange(stringIndex, value)}/>
+                        value={formData[stringIndex].value} onChange={(value) => handleMediaChange(stringIndex, value)}/>
                       case "video": 
                         return <Video field={field} error={formData[stringIndex].error}
                         value={formData[stringIndex].value} onChange={(value) => handleValueChange(stringIndex, value)}/>
